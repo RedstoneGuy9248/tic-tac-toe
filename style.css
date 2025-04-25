@@ -1,8 +1,12 @@
 body {
     text-align: center;
+    font-size: 100px;
+    font-family: "Comic Sans MS";
 }
 button {
     font-size: 100px;
-    margin: 10px;
+    margin: 10px 10px 30px 10px;
     text-align: center;
+    height: 150px;
+    width: 150px;
 }
