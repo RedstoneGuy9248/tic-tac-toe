@@ -38,10 +38,7 @@ const checkTie = (array) => {
     checkIfHasBoxBeenUsed = array.map(button => {
         return button.dataset.value != "none";
     });
-    let output = true;
-    checkIfHasBoxBeenUsed.forEach(element => {
-        if (!element) {output = false};
-    });
+    let output = checkIfHasBoxBeenUsed.every(element => element);
     return output;
 };
 
