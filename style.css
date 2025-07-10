@@ -1,3 +1,5 @@
+
+/*DESKTOP*/
 button.grid, #info {
     text-align: center;
     font-size: 66px;
@@ -32,3 +34,42 @@ button.grid {
 table {
     margin: auto;
 }
+
+/*MOBILE*/
+@media only screen and (max-width: 600px) {
+button.grid, #info {
+    text-align: center;
+    font-size: 50px;
+    font-family: "Comic Sans MS";
+}
+#scores {
+    display: flex;
+    justify-content: space-between;
+    font-size:15px;
+    align-items: flex-start;
+}
+#scoreX, #scoreO {
+    font-size: 20px;
+}
+button.grid {
+    font-size: 50px;
+    text-align: center;
+    height: 75px;
+    width: 75px;
+}
+#replay {
+    font-size: 30px;
+    text-align: center;
+    height: 55px;
+    width: 140px;
+    display: none;
+}
+#replayDiv {
+    display: flex;
+    justify-content: center;
+}
+table {
+    margin: auto;
+}
+};
+
