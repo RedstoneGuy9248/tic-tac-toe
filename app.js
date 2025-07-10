@@ -1,18 +1,18 @@
 const buttons = Array.from(document.querySelectorAll(".grid"));
-const para = document.querySelector("p");
+const para = document.querySelector("#info");
+const replay_button = document.querySelector("#replay");
+const scoreXPara = document.querySelector("#scoreX");
+const scoreOPara = document.querySelector("#scoreO");
 let turn = "[X]"
-const updatePara = (win) => {
-    if (win) {
-        if (checkTie(buttons)) {
-            para.innerText = `Game Ended! It's a tie!`
-        } else {
-            para.innerText = `Game Ended! ${turn[1]} Wins!`
-        }
-    } else {
-        para.innerText = `${turn[1]}'s Move`
-    };
+let scoreX = 0;
+let scoreO = 0;
+
+
+const updateScore = () => {
+    scoreXPara.innerText = scoreX;
+    scoreOPara.innerText = scoreO;
 };
-updatePara();
+
 const selectMove = async () => {
     const clickedItem = await new Promise((resolve, reject) => {
         buttons.forEach(element => {
@@ -44,14 +44,32 @@ const checkTie = (array) => {
 
 const play = async () => {
     const move = await selectMove();
+    console.log(buttons[move].dataset.value)
     if (buttons[move].dataset.value == "none") {
         buttons[move].dataset.value = turn;
         buttons[move].innerText = turn;
         if (turn === "[X]") {turn = "[O]"} else {turn = "[X]"};
         updatePara();
     } else {
+        console.log(buttons[move].dataset.value);
         alert("invalid move");
     }
+};
+
+
+
+
+const updatePara = (win) => {
+    if (win) {
+        if (checkTie(buttons)) {
+            para.innerText = `Game Ended! It's a tie!`
+        } else {
+            para.innerText = `Game Ended! ${turn[1]} Wins!`
+        }
+        replay_button.style.display = "inline";
+    } else {
+        para.innerText = `${turn[1]}'s Move`
+    };
 };
 
 const gameLoop = async () => {
@@ -61,8 +79,24 @@ const gameLoop = async () => {
     console.log("Game ended!");
     if (turn === "[X]") {turn = "[O]"} else {turn = "[X]"};
     console.log(checkTie(buttons));
-    if (checkTie(buttons)) {console.log("It's a Tie")} else {console.log(`${turn} Wins!`)};
+    if (checkTie(buttons)) {console.log("It's a Tie")} else {
+        console.log(`${turn} Wins!`);
+        if (turn === "[X]") {scoreX++} else {scoreO++};
+    };
+    updateScore();
     updatePara(true);
 };
 
-gameLoop();
+const reset_game = () => {
+    console.log("resetting game")
+    buttons.forEach(element => {
+        element.innerText = "[]"
+        element.dataset.value = "none";    
+    });
+    let turn = "[X]"
+    updatePara();
+    gameLoop();
+};
+replay_button.addEventListener("click", reset_game);
+updatePara();
+reset_game();

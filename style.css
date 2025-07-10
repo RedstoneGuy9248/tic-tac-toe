@@ -1,13 +1,33 @@
-body {
+button.grid, #info {
     text-align: center;
     font-size: 66px;
     font-family: "Comic Sans MS";
 }
-button {
+#scores {
+    display: flex;
+    justify-content: space-between;
+    font-size:25px;
+    align-items: flex-start;
+}
+#scoreX, #scoreO {
+    font-size: 30px;
+}
+button.grid {
     font-size: 66px;
     text-align: center;
     height: 100px;
     width: 100px;
+}
+#replay {
+    font-size: 45px;
+    text-align: center;
+    height: 70px;
+    width: 170px;
+    display: none;
+}
+#replayDiv {
+    display: flex;
+    justify-content: center;
 }
 table {
     margin: auto;

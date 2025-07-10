@@ -7,22 +7,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <table id="grid">
-            <tr>
-            <td><button data-value="none" class="grid" id="0">[]</button></td>
-            <td><button data-value="none" class="grid" id="1">[]</button></td>
-            <td><button data-value="none" class="grid" id="2">[]</button></td>
-            </tr><tr>
-            <td><button data-value="none" class="grid" id="3">[]</button></td>
-            <td><button data-value="none" class="grid" id="4">[]</button></td>
-            <td><button data-value="none" class="grid" id="5">[]</button></td>
-            </tr><tr>
-            <td><button data-value="none" class="grid" id="6">[]</button></td>
-            <td><button data-value="none" class="grid" id="7">[]</button></td>
-            <td><button data-value="none" class="grid" id="8">[]</button></td>
-            </tr>
-        </table>
-        <p></p>
+        <div id="scores">
+            <div id="scoreXdiv">
+                <p>X's Score:</p>
+                <b><p id="scoreX">0</p></b>
+            </div>
+            <table id="grid">
+                <tr>
+                <td><button data-value="none" class="grid" id="0">[]</button></td>
+                <td><button data-value="none" class="grid" id="1">[]</button></td>
+                <td><button data-value="none" class="grid" id="2">[]</button></td>
+                </tr><tr>
+                <td><button data-value="none" class="grid" id="3">[]</button></td>
+                <td><button data-value="none" class="grid" id="4">[]</button></td>
+                <td><button data-value="none" class="grid" id="5">[]</button></td>
+                </tr><tr>
+                <td><button data-value="none" class="grid" id="6">[]</button></td>
+                <td><button data-value="none" class="grid" id="7">[]</button></td>
+                <td><button data-value="none" class="grid" id="8">[]</button></td>
+                </tr>
+            </table>
+            <div id="scoreOdiv">
+                <p>O's Score:</p>
+                <b><p id="scoreO">0</p></b>
+            </div>
+        </div>
+        <p id="info"></p>
+        <div id="replayDiv">
+            <button id="replay">Replay</button>
+        </div>
     </body>
     <script src="app.js"></script>
 </html>
