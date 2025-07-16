@@ -48,6 +48,7 @@ const play = async () => {
     if (buttons[move].dataset.value == "none") {
         buttons[move].dataset.value = turn;
         buttons[move].innerText = turn;
+        if (turn === "[X]") {buttons[move].classList.add("BoxX")} else {buttons[move].classList.add("BoxO")};
         if (turn === "[X]") {turn = "[O]"} else {turn = "[X]"};
         updatePara();
     } else {
@@ -87,15 +88,17 @@ const gameLoop = async () => {
     updatePara(true);
 };
 
-const reset_game = () => {
+const reset_game = async () => {
     console.log("resetting game")
     buttons.forEach(element => {
         element.innerText = "[]"
         element.dataset.value = "none";    
+        element.classList.remove("BoxX");
+        element.classList.remove("BoxO");
     });
     let turn = "[X]"
     updatePara();
-    gameLoop();
+    await gameLoop();
 };
 replay_button.addEventListener("click", reset_game);
 updatePara();
